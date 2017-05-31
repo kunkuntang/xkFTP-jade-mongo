@@ -1,0 +1,41 @@
+//Created by Administrator on 2016/11/16.
+
+extends ../layout
+
+block content
+  .container
+    .row
+      form.form-horizontal(method="post", action="/v1/addMovie")
+        .form-group
+          label.col-sm-2.control-label(for="inputTitle") 电影名字
+          .col-sm-10
+            input#inputTitle.form-control(type="text", name="title", value="#{movie.title}")
+        .form-group
+          label.col-sm-2.control-label(for="inputDoctor") 电影导演
+          .col-sm-10
+            input#inputDoctor.form-control(type="text", name="doctor", value="#{movie.doctor}")
+        .form-group
+          label.col-sm-2.control-label(for="inputCity") 国家
+          .col-sm-10
+            input#inputCity.form-control(type="text", name="city", value="#{movie.city}")
+        .form-group
+          label.col-sm-2.control-label(for="inputYear") 年份
+          .col-sm-10
+            input#inputYear.form-control(type="text", name="year", value="#{movie.year}")
+        .form-group
+          label.col-sm-2.control-label(for="inputLanguage") 语种
+          .col-sm-10
+            input#inputLanguage.form-control(type="text", name="language", value="#{movie.language}")
+        .form-group
+          label.col-sm-2.control-label(for="inputSummary") 简介
+          .col-sm-10
+            input#inputSummary.form-control(type="text", name="summary", value="#{movie.summary}")
+        .form-group
+          label.col-sm-2.control-label(for="inputPoster") 海报
+          .col-sm-10
+            input#inputPoster.form-control(type="text", name="poster", value="#{movie.poster}")
+        .form-group
+          label.col-sm-2.control-label(for="inputVideo") 视频
+          .col-sm-10
+            input#inputVideo.form-control(type="text", name="video", value="#{movie.video}")
+        button.btn.btn-primary.pull-right(type="submit") 提交
