@@ -1,5 +1,25 @@
-.container
-  .row
-    .page-header
-      h1= title
-      small 重度科幻迷
+nav.navbar.navbar-default(role="navigation")
+  .container-fluid
+  .navbar-header
+    a.navbar-brand(href="#") movies
+  div
+    ul.nav.navbar-nav
+      li.active
+        a(href="/") Home
+      li
+        a(href="#") Movies
+      li
+        a(href="#") Software
+      li.dropdown
+        a.dropdown-toggle(href="#", data-toggle="dropdown") Admin
+          b.caret
+        ul.dropdown-menu
+          li
+            a(href="/admin/movie") Add Movies
+          li
+            a(href="/admin/list") Edit Movies
+          li.divider
+          li
+            a(href="#") Add Software
+          li
+            a(href="#") Edit Software

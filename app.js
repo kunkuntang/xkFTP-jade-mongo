@@ -20,10 +20,15 @@ app.set('view engine', 'jade');
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(express.static(path.join(__dirname, 'bower_components')));
-app.use('/img', express.static(path.join(__dirname, 'img')));
+app.use('/js', express.static(path.join(__dirname, 'public/js')));
+app.use('/css', express.static(path.join(__dirname, 'public/css')));
+app.use('/img', express.static(path.join(__dirname, 'public/img')));
 app.use('/bootstrap', express.static(path.join(__dirname, './node_modules/bootstrap')));
 app.use('/jquery', express.static(path.join(__dirname, './node_modules/jquery')));
 app.use('/videos', express.static(path.join(__dirname, 'videos')));
+
+app.locals.moment = require('moment')
+
 app.listen(port);
 
 console.log('imooc started on port ' + port);
@@ -97,12 +102,19 @@ app.post('/v1/updateMovie', function (req, res) {
 });
 
 // admin delete movie
-app.get('/v1/deletMovie/:id', function (req, res) {
-    var id = req.params.id;
-
-    Movie.deletMovie(id, function () {
-        res.redirect('/admin/list');
-    });
+app.delete('/v1/deletMovie', function (req, res) {
+    var id = req.query.id;
+    console.log(id)
+    if (id) {
+        console.log('deleting')
+        Movie.remove({_id: id}, function(err, movie) {
+            if (err) {
+                console.log(err)
+            } else {
+                res.json({success: 1})
+            }
+        })
+    }
 })
 
 //index page
@@ -160,7 +172,8 @@ app.get('/update/:id', function (req, res) {
     var id = req.params.id;
 
     if (id) {
-        Movie.fetchById(id, function (movie) {
+        Movie.findById({_id: id}, function (err, movie) {
+            console.log('movie', movie)
             res.render('update', {
                 title: 'xingkong 后台更新页',
                 movie: movie
