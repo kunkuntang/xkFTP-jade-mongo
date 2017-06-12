@@ -1,0 +1,22 @@
+//Created by Administrator on 2016/11/16.
+extends ../layout
+
+block content
+  link(rel="stylesheet", href="/css/index.css")
+  .container
+    .row
+      each item in movies
+        .col-sm-2.col-sm-offset-0.col-xs-8.col-xs-offset-2.movieCard
+          .thumbnail
+            a(href="/movie/#{item._id}")
+              img.img-responsive.poster(src="#{item.poster}", alt="#{item.title}")
+            .caption.text-center
+              span.title #{item.title}
+              span.year 年份：#{item.year}
+            div.btn-group.btn-group-sm.operateBtn
+              button.btn.btn-primary(type="button") 
+                a(href="/movie/#{item._id}") 详情
+              button.btn.btn-info(type="button")
+                //- a.download(href="#{item.video}")
+                a.download(href="/download?movie=#{item.video}&name=#{item.title}")
+                  span.glyphicon.glyphicon-download-alt

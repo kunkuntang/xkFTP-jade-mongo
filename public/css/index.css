@@ -1,0 +1,43 @@
+body {
+	font-family: "Microsoft YaHei"
+}
+
+a {
+	color: #fff;
+}
+
+a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.movieCard > .thumbnail > .caption > span {
+	margin-top: 5px;
+	display: block;
+}
+
+.movieCard .title{
+	font-size: 16px;
+}
+
+.movieCard .year{
+	font-size: 13px;
+}
+
+.movieCard .poster{
+	height: 230px;
+}
+
+.movieCard .operateBtn{
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+.movieCard .operateBtn > button{
+	width: 50%;
+}
+
+.movieCard .operateBtn a{
+	width: 100%;
+	display: block;
+}
