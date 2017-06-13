@@ -56,5 +56,5 @@ app.locals.moment = require('moment')
 
 app.listen(port);
 
-console.log('imooc started on port ' + port);
+console.log('xkFTP started on port ' + port);
 

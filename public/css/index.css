@@ -11,33 +11,37 @@ a:hover {
 	text-decoration: none;
 }
 
-.movieCard > .thumbnail > .caption > span {
+.card > .thumbnail > .caption > span {
 	margin-top: 5px;
 	display: block;
 }
 
-.movieCard .title{
+.card .title{
 	font-size: 16px;
 }
 
-.movieCard .year{
+.card .bookName{
+	font-size: 14px;
+}
+
+.card .year{
 	font-size: 13px;
 }
 
-.movieCard .poster{
+.card .poster{
 	height: 230px;
 }
 
-.movieCard .operateBtn{
+.card .operateBtn{
 	width: 100%;
 	margin-bottom: 5px;
 }
 
-.movieCard .operateBtn > button{
+.card .operateBtn > button{
 	width: 50%;
 }
 
-.movieCard .operateBtn a{
+.card .operateBtn a{
 	width: 100%;
 	display: block;
 }

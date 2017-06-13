@@ -13,7 +13,7 @@ exports.movieListPage = function(req, res) {
         if (err) {
             console.log(err)
         } else {
-            res.render('moviesList', {
+            res.render('movie/moviesList', {
                 title: 'Movie List',
                 movies: movieList
             })
@@ -30,7 +30,7 @@ exports.movieDetailPage = function (req, res) {
             console.error(err)
         } else {
             console.log('result', movie)
-            res.render('movieDetail', {
+            res.render('movie/movieDetail', {
                 title: 'xingkong 详情页',
                 movie: movie
             })
@@ -46,7 +46,7 @@ exports.adminMovieList = function(req, res) {
         if (err) {
             console.log(err)
         } else {
-            res.render('adminMoviesList', {
+            res.render('movie/adminMoviesList', {
                 title: 'Movie List',
                 movies: movieList
             })
@@ -56,7 +56,7 @@ exports.adminMovieList = function(req, res) {
 
 // admin add movie page
 exports.addMoviePage = function (req, res) {
-    res.render('updateMovie', {
+    res.render('movie/updateMovie', {
         title: 'imooc 后台录入页',
         movie: {
             title: '',
@@ -79,7 +79,7 @@ exports.updateMoviePage = function (req, res) {
     if (id) {
         Movie.findById({_id: id}, function (err, movie) {
             console.log('movie', movie)
-            res.render('updateMovie', {
+            res.render('movie/updateMovie', {
                 title: 'xingkong 后台更新页',
                 movie: movie
             })
@@ -151,6 +151,7 @@ exports.updateMovie = function (req, res) {
     var movieObj = req.body.movie
 
     // var ftpAdd = 'ftp://10.3.5.110/xkFTP/movies'
+    var ftpAdd = 'http://125.216.145.57:9080/download?resource='
     var category = 'movies/'
     var _movie
 
@@ -158,7 +159,15 @@ exports.updateMovie = function (req, res) {
         movieObj.poster = req.poster
     }
 
-    movieObj.video = category + movieObj.video
+    console.log(movieObj.video)
+    if (movieObj.video && movieObj.video.indexOf(category) === -1) {
+        movieObj.video = category + movieObj.video
+    }
+
+    if (movieObj.video && movieObj.video.indexOf(ftpAdd) === -1) {
+        movieObj.video = ftpAdd + movieObj.video
+    }
+    // movieObj.video = ftpAdd + category + movieObj.video
 
     if (id !== 'undefined') {
         Movie.findById(id, function (err, movie) {

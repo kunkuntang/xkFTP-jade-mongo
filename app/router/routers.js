@@ -1,10 +1,11 @@
 var multipart = require('connect-multiparty')
 var multipartMiddleware = multipart()
 
-var Index = require('./index')
-var Movie = require('./movies')
-var User = require('./user')
-var Download = require('./download')
+var Index = require('../controller/index')
+var Movie = require('../controller/movie')
+var Book = require('../controller/book')
+var User = require('../controller/user')
+var Download = require('../controller/download')
 
 // var Movie = require('../models/movie');
 var _ = require('underscore');
@@ -34,6 +35,12 @@ module.exports = function (app) {
     // movie delete 
     app.delete('/v1/movies/deletMovie', Movie.deletMovie)
 
+    // book addd & update 
+    app.post('/v1/books/updateBook',multipartMiddleware , Book.preSave, Book.updateBook);
+
+    // book delete 
+    app.delete('/v1/books/deletBook', Book.deletBook)
+
     // user signIn
     app.post('/v1/user/signIn', User.signIn)
 
@@ -53,6 +60,12 @@ module.exports = function (app) {
     // movie detail page
     app.get('/movie/:id', Movie.movieDetailPage)
 
+    // books list
+    app.get('/booksList', Book.bookListPage)
+
+    // book detail page
+    app.get('/book/:id', Book.bookDetailPage)
+
     // ----------- admin manage page ------------------
 
     // movie admin index page
@@ -61,11 +74,20 @@ module.exports = function (app) {
     // movie admin update movie page
     app.get('/admin/updateMovie/:id', User.signInRequired, User.adminRequired, Movie.updateMoviePage);
 
-    // user signUp page
-    app.get('/user/signUp', User.signUp)
-
     // movie admin list page
     app.get('/admin/moviesList', User.signInRequired, User.adminRequired, Movie.adminMovieList)
+
+    // book admin index page
+    app.get('/admin/addBook', User.signInRequired, User.adminRequired, Book.addBookPage);
+
+    // book admin update book page
+    app.get('/admin/updateBook/:id', User.signInRequired, User.adminRequired, Book.updateBookPage);
+
+    // book admin list page
+    app.get('/admin/booksList', User.signInRequired, User.adminRequired, Book.adminBookList)
+
+    // user signUp page
+    app.get('/user/signUp', User.signUp)
 
     // -----------  superAdmin manage page  --------------
     app.get('/admin/userList', User.signInRequired, User.adminRequired, User.getUserList)
