@@ -3,7 +3,7 @@ var app = require('../../app')
 var mongoose = require('mongoose')
 var Movie = require('../../app/models/movie')
 
-var movie, user
+var movie
 
 // test
 describe('<Unit Test', function () {

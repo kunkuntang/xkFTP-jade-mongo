@@ -5,20 +5,20 @@ block content
   .container
     .row
       .col-md-9
-        video(src="../videos/#{movie.video}", width="720", height="600", type="video/mp4", controls="")
+        video(src="../videos/#{software.video}", width="720", height="600", type="video/mp4", controls="")
       .col-md-3
             dl.dl-horizontal
             dt 电影名字
-            dd= movie.title
+            dd= software.title
             dt 导演
-            dd= movie.doctor
+            dd= software.doctor
             dt 国家
-            dd= movie.city
+            dd= software.city
             dt 语言
-            dd= movie.language
+            dd= software.language
             dt 上映年份
-            dd= movie.year
+            dd= software.year
             dt 简介
-            dd= movie.summary
+            dd= software.summary
     .row
-      a.btn.btn-primary(href="#{movie.video}") 下载
+      a.btn.btn-primary(href="#{software.video}") 下载
