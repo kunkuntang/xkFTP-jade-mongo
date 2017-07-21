@@ -16,7 +16,7 @@ var MongoStore  = require('connect-mongo')(session)
 var port = process.env.PORT || 3000;
 var app = express();
 
-var dbUrl = 'mongodb://localhost:40801/xkFTP'
+var dbUrl = 'mongodb://127.0.0.1:27017/xkFTP'
 mongoose.connect(dbUrl)
 
 if ('development' === app.get('env')) {

@@ -1,0 +1,6 @@
+// {type:class}
+// {direction:topDown}
+[note: You can stick notes on diagrams too!{bg:cornsilk}]
+[Resourses]-*>[Books]
+[Resourses]-*>[Softwares]
+[Resourses]-*>[Movies|title;doctor;language;contry;summary;video;poster;year;meta|+addMovie();+updateMovie();+deleteMovie()]

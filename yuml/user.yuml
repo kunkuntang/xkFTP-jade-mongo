@@ -1,0 +1,14 @@
+// {type:usecase}
+// {direction:leftToRight}
+(note: figure 1.2{bg:beige})
+[User]-(Login)
+[User]-(Logout)
+[User]-(Download Resourses)
+[Site Maintainer]-(Add Books or Movies or Softwares)
+[Site Admin]<[Site Maintainer]
+[Site Maintainer]<[User]
+[Site Admin]-(Add User or Site Maintainer)
+(Add User or Site Maintainer)<(Add Company)
+(Add Books or Movies or Softwares)<(Add Company)
+[Site Maintainer]-(Delete or Modify Books or Movies or Softwares)
+(Delete or Modify Books or Movies or Softwares)<(Manage Resourses)
