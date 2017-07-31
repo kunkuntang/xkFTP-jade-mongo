@@ -151,7 +151,7 @@ exports.updateMovie = function (req, res) {
     var movieObj = req.body.movie
 
     // var ftpAdd = 'ftp://10.3.5.110/xkFTP/movies'
-    var ftpAdd = 'http://125.216.145.57:9080/download?resource='
+    var ftpAdd = 'http://lenkuntang.cn/download/ftp/'
     var category = 'movies/'
     var _movie
 

@@ -122,7 +122,7 @@ exports.updateSoftware = function (req, res) {
     var softwareObj = req.body.software
 
     // var ftpAdd = 'ftp://10.3.5.110/xkFTP/softwares'
-    var ftpAdd = 'http://125.216.145.57:9080/download?resource='
+    var ftpAdd = 'http://lenkuntang.cn/download/ftp/'
     var category = 'softwares/'
     var _software
 
