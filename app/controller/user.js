@@ -4,7 +4,7 @@ var User = require('../models/user')
 
 // user regist page
 exports.regist = function(req, res) {
-    res.render('regist')
+    res.render('userRegist')
 }
 
 // -----------  superAdmin manage page  --------------
@@ -51,6 +51,8 @@ exports.signIn = function(req, res) {
     var _user = req.body.user
     var name = _user.name
     var password = _user.password
+
+    console.log(name)
 
     User.findOne({name: name}, function(err, user) {
         if (err) {

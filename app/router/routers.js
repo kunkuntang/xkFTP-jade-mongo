@@ -51,6 +51,9 @@ module.exports = function (app) {
     // user signIn
     app.post('/v1/user/signIn', User.signIn)
 
+    // user signUp page
+    app.post('/user/signUp', User.signUp)
+
     // user logout
     app.get('/logout', function (req, res) {
         User.logout(req, res, app)
@@ -108,14 +111,11 @@ module.exports = function (app) {
     // software admin list page
     app.get('/admin/softwaresList', User.signInRequired, User.adminRequired, Software.adminSoftwareList)
 
-    // user signUp page
-    app.get('/user/signUp', User.signUp)
-
     // -----------  superAdmin manage page  --------------
     app.get('/admin/userList', User.signInRequired, User.adminRequired, User.getUserList)
 
     // uesr regist 
-    app.post('/user/regist', User.regist)
+    app.get('/user/regist', User.regist)
 
     // ----------- function ---------------
     app.get('/download', Download.download)
