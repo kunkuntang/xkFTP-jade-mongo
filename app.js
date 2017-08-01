@@ -13,7 +13,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
 var session = require('express-session')
 var MongoStore  = require('connect-mongo')(session)
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8001;
 var app = express();
 
 var dbUrl = 'mongodb://127.0.0.1:27017/xkFTP'
